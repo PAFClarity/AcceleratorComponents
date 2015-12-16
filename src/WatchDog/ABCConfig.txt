@@ -1,0 +1,2 @@
+ConnectionString="Data Source=CSG-FLORES\SQLEVAL15;" "Initial Catalog=WatchDog;" "User id=pflores;" "Password=ic3x2yn2d;"
+EmptyValue=" "
