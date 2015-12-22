@@ -1915,6 +1915,47 @@ namespace WatchDog
 
             }
 
+        public DataTable GetProcessProperties(string PROCESS_ID)
+            {
+            //PROCESS_ID, PROPERTY_NM, PROPERTY_VALUE, PROPERTY_VALUE_TYP, ENABLE_IND, UPDATE_DTTM, UPDATE_UID
+            int ProcessStatus = 0;
+            string WHERE_CLAUSE = "";
+            DataTable dtResult = new DataTable();
+
+            if (PROCESS_ID.Trim().Length == 0)
+                {
+                ProcessStatus++;
+                }
+
+            if ((ProcessStatus == 0))
+                {
+                //Build Where Clause
+
+                WHERE_CLAUSE = " PROCESS_ID ='" + PROCESS_ID.ToString() + "'";
+
+
+                //Build Query
+                string queryCMD = "SELECT PROCESS_ID, PROPERTY_NM, PROPERTY_VALUE, PROPERTY_VALUE_TYP, ENABLE_IND, UPDATE_DTTM, UPDATE_UID FROM PROCESS_PROPERTY WHERE " + WHERE_CLAUSE.ToString();
+
+                using (SqlConnection con = new SqlConnection(connectString))
+                    {
+                    using (SqlDataAdapter resultSet = new SqlDataAdapter(queryCMD, con))
+                        {
+                        resultSet.Fill(dtResult);
+                        }
+                    }
+
+                return dtResult;
+
+                }
+            else
+                {
+                return dtResult;
+                }
+
+            }
+
+
         public int EnableProcessProperty(string PROCESS_ID, string PROPERTY_NM, string UPDATE_UID)
             {
             int ProcessStatus = 0;
