@@ -2162,7 +2162,7 @@ namespace WatchDog
             return ProcessStatus;
             }
 
-        public Tuple<string, string, string, string, string, DateTime, string, Tuple<int> > GetProcessControlStats(string PROCESS_CNTRL_ID, string PROCESS_CNTRL_STAT_NM)
+        public Tuple<string, string, string, string, string, DateTime, string, Tuple<int> > GetProcessControlStat(string PROCESS_CNTRL_ID, string PROCESS_CNTRL_STAT_NM)
             {
             //int PROCESS_CNTRL_ID, string PROCESS_CNTRL_STAT_NM , string PROCESS_CNTRL_STAT_DESC, string PROCESS_CNTRL_STAT_TYP, string PROCESS_CNTRL_STAT_VALU ,string UPDATE_UID
             int ProcessStatus = 0;
@@ -2219,6 +2219,52 @@ namespace WatchDog
                 ProcessStatus++;
                 var rtrnTuple = new Tuple<string, string, string, string, string, DateTime, string, Tuple<int>>("ERROR", PROCESS_CNTRL_ID.ToString(), "", PROCESS_CNTRL_STAT_NM.ToString(), "", DateTime.Now, "", new Tuple<int>(ProcessStatus));
                 return rtrnTuple;
+                }
+            }
+
+        public DataTable GetPCStatistics(string PROCESS_CNTRL_ID)
+            {
+            int ProcessStatus = 0;
+            string WHERE_CLAUSE = "";
+            DataTable dtResult = new DataTable();
+
+            if (PROCESS_CNTRL_ID.Trim().Length == 0)
+                {
+                ProcessStatus++;
+                }
+
+            if ((ProcessStatus == 0))
+                {
+                //Build Where Clause
+
+                WHERE_CLAUSE = " PROCESS_CNTRL_ID ='" + PROCESS_CNTRL_ID.ToString() + "'";
+
+
+                //Build Query
+                string queryCMD = "SELECT PROCESS_CNTRL_ID, PROCESS_CNTRL_STAT_NM , PROCESS_CNTRL_STAT_DESC, PROCESS_CNTRL_STAT_TYP,PROCESS_CNTRL_STAT_VALU, UPDATE_DTTM, UPDATE_UID FROM PROCESS_CONTROL_STATS WHERE " + WHERE_CLAUSE.ToString();
+
+                using (SqlConnection con = new SqlConnection(connectString))
+                    {
+                    using (SqlDataAdapter resultSet = new SqlDataAdapter(queryCMD, con))
+                        {
+                        resultSet.Fill(dtResult);
+                        }
+                    }
+
+                if (dtResult.Rows.Count > 0)
+                    {
+                    return dtResult;
+                    }
+                else
+                    {
+                    //return empty table
+                    return dtResult;
+                    }
+                }
+            else
+                {
+                //return empty table
+                return dtResult;
                 }
             }
 
