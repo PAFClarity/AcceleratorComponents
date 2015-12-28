@@ -1,0 +1,439 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.5.1": {
+      "EntityFramework/6.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.dll": {},
+          "lib/net45/EntityFramework.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.dll": {},
+          "lib/net45/EntityFramework.SqlServer.dll": {}
+        }
+      },
+      "System.Data.Sql.Browser/0.5.0.73": {
+        "type": "package",
+        "compile": {
+          "lib/net45/System.Data.Sql.Browser.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Data.Sql.Browser.dll": {}
+        }
+      },
+      "System.Data.SQLite/1.0.99": {
+        "type": "package",
+        "dependencies": {
+          "System.Data.SQLite.Core": "1.0.99",
+          "System.Data.SQLite.EF6": "1.0.99",
+          "System.Data.SQLite.Linq": "1.0.99"
+        }
+      },
+      "System.Data.SQLite.Core/1.0.99": {
+        "type": "package",
+        "compile": {
+          "lib/net451/System.Data.SQLite.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.Data.SQLite.dll": {}
+        }
+      },
+      "System.Data.SQLite.EF6/1.0.99": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework": "6.0.0"
+        },
+        "compile": {
+          "lib/net451/System.Data.SQLite.EF6.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.Data.SQLite.EF6.dll": {}
+        }
+      },
+      "System.Data.SQLite.Linq/1.0.99": {
+        "type": "package",
+        "compile": {
+          "lib/net451/System.Data.SQLite.Linq.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.Data.SQLite.Linq.dll": {}
+        }
+      },
+      "System.IO/4.0.11-beta-23516": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5.1/win7-x86": {
+      "EntityFramework/6.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.dll": {},
+          "lib/net45/EntityFramework.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.dll": {},
+          "lib/net45/EntityFramework.SqlServer.dll": {}
+        }
+      },
+      "System.Data.Sql.Browser/0.5.0.73": {
+        "type": "package",
+        "compile": {
+          "lib/net45/System.Data.Sql.Browser.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Data.Sql.Browser.dll": {}
+        }
+      },
+      "System.Data.SQLite/1.0.99": {
+        "type": "package",
+        "dependencies": {
+          "System.Data.SQLite.Core": "1.0.99",
+          "System.Data.SQLite.EF6": "1.0.99",
+          "System.Data.SQLite.Linq": "1.0.99"
+        }
+      },
+      "System.Data.SQLite.Core/1.0.99": {
+        "type": "package",
+        "compile": {
+          "lib/net451/System.Data.SQLite.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.Data.SQLite.dll": {}
+        }
+      },
+      "System.Data.SQLite.EF6/1.0.99": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework": "6.0.0"
+        },
+        "compile": {
+          "lib/net451/System.Data.SQLite.EF6.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.Data.SQLite.EF6.dll": {}
+        }
+      },
+      "System.Data.SQLite.Linq/1.0.99": {
+        "type": "package",
+        "compile": {
+          "lib/net451/System.Data.SQLite.Linq.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.Data.SQLite.Linq.dll": {}
+        }
+      },
+      "System.IO/4.0.11-beta-23516": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5.1/win7-x64": {
+      "EntityFramework/6.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.dll": {},
+          "lib/net45/EntityFramework.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.dll": {},
+          "lib/net45/EntityFramework.SqlServer.dll": {}
+        }
+      },
+      "System.Data.Sql.Browser/0.5.0.73": {
+        "type": "package",
+        "compile": {
+          "lib/net45/System.Data.Sql.Browser.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Data.Sql.Browser.dll": {}
+        }
+      },
+      "System.Data.SQLite/1.0.99": {
+        "type": "package",
+        "dependencies": {
+          "System.Data.SQLite.Core": "1.0.99",
+          "System.Data.SQLite.EF6": "1.0.99",
+          "System.Data.SQLite.Linq": "1.0.99"
+        }
+      },
+      "System.Data.SQLite.Core/1.0.99": {
+        "type": "package",
+        "compile": {
+          "lib/net451/System.Data.SQLite.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.Data.SQLite.dll": {}
+        }
+      },
+      "System.Data.SQLite.EF6/1.0.99": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework": "6.0.0"
+        },
+        "compile": {
+          "lib/net451/System.Data.SQLite.EF6.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.Data.SQLite.EF6.dll": {}
+        }
+      },
+      "System.Data.SQLite.Linq/1.0.99": {
+        "type": "package",
+        "compile": {
+          "lib/net451/System.Data.SQLite.Linq.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.Data.SQLite.Linq.dll": {}
+        }
+      },
+      "System.IO/4.0.11-beta-23516": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EntityFramework/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "y6lX/VMghGBV6TvgQS4Q2WK6kAcOoyD+TQxObN9utd0JsMMdMxyqARxKbvgi7KEIbQ8osZ4ZvImaly7l3NDFDw==",
+      "files": [
+        "Content/App.config.transform",
+        "Content/Web.config.transform",
+        "EntityFramework.6.0.0.nupkg",
+        "EntityFramework.6.0.0.nupkg.sha512",
+        "EntityFramework.nuspec",
+        "lib/net40/EntityFramework.dll",
+        "lib/net40/EntityFramework.SqlServer.dll",
+        "lib/net40/EntityFramework.SqlServer.xml",
+        "lib/net40/EntityFramework.xml",
+        "lib/net45/EntityFramework.dll",
+        "lib/net45/EntityFramework.SqlServer.dll",
+        "lib/net45/EntityFramework.SqlServer.xml",
+        "lib/net45/EntityFramework.xml",
+        "tools/about_EntityFramework.help.txt",
+        "tools/EntityFramework.PowerShell.dll",
+        "tools/EntityFramework.PowerShell.Utility.dll",
+        "tools/EntityFramework.psd1",
+        "tools/EntityFramework.psm1",
+        "tools/init.ps1",
+        "tools/install.ps1",
+        "tools/migrate.exe"
+      ]
+    },
+    "System.Data.Sql.Browser/0.5.0.73": {
+      "type": "package",
+      "sha512": "TTMxODpk/z16rB+xgS+KJMxPsNWnRHUYRUCw8f5xfQoXurJP3/BSZ6vYoaMkjNp/j+TZP4Z1YM05ou0t0sMuNg==",
+      "files": [
+        "lib/net45/System.Data.Sql.Browser.dll",
+        "lib/net45/System.Data.Sql.Browser.XML",
+        "System.Data.Sql.Browser.0.5.0.73.nupkg",
+        "System.Data.Sql.Browser.0.5.0.73.nupkg.sha512",
+        "System.Data.Sql.Browser.nuspec"
+      ]
+    },
+    "System.Data.SQLite/1.0.99": {
+      "type": "package",
+      "sha512": "3vLyQfl0QOFZwUh5/ubQU1xMi2+6sFITylqdZ6pOIrG3Q661IaA9VxbM7NIDZG5orr7F8RDgu+1Mo7dA0lCQog==",
+      "files": [
+        "System.Data.SQLite.1.0.99.nupkg",
+        "System.Data.SQLite.1.0.99.nupkg.sha512",
+        "System.Data.SQLite.nuspec"
+      ]
+    },
+    "System.Data.SQLite.Core/1.0.99": {
+      "type": "package",
+      "sha512": "5KMHqnyeUADZNq0Zq0CEG0JvxwbixtjQ0w0s6zyH2lgxEgeE7xmB8bCLI3HRFfIL1726hQsqjRATN2wXYjaoyQ==",
+      "files": [
+        "build/net20/System.Data.SQLite.Core.targets",
+        "build/net20/x64/SQLite.Interop.dll",
+        "build/net20/x86/SQLite.Interop.dll",
+        "build/net40/System.Data.SQLite.Core.targets",
+        "build/net40/x64/SQLite.Interop.dll",
+        "build/net40/x86/SQLite.Interop.dll",
+        "build/net45/System.Data.SQLite.Core.targets",
+        "build/net45/x64/SQLite.Interop.dll",
+        "build/net45/x86/SQLite.Interop.dll",
+        "build/net451/System.Data.SQLite.Core.targets",
+        "build/net451/x64/SQLite.Interop.dll",
+        "build/net451/x86/SQLite.Interop.dll",
+        "build/net46/System.Data.SQLite.Core.targets",
+        "build/net46/x64/SQLite.Interop.dll",
+        "build/net46/x86/SQLite.Interop.dll",
+        "lib/net20/System.Data.SQLite.dll",
+        "lib/net20/System.Data.SQLite.xml",
+        "lib/net40/System.Data.SQLite.dll",
+        "lib/net40/System.Data.SQLite.xml",
+        "lib/net45/System.Data.SQLite.dll",
+        "lib/net45/System.Data.SQLite.xml",
+        "lib/net451/System.Data.SQLite.dll",
+        "lib/net451/System.Data.SQLite.xml",
+        "lib/net46/System.Data.SQLite.dll",
+        "lib/net46/System.Data.SQLite.xml",
+        "System.Data.SQLite.Core.1.0.99.nupkg",
+        "System.Data.SQLite.Core.1.0.99.nupkg.sha512",
+        "System.Data.SQLite.Core.nuspec"
+      ]
+    },
+    "System.Data.SQLite.EF6/1.0.99": {
+      "type": "package",
+      "sha512": "7e07zdEAHB/QTlQOBk5JOjyLWUx/VL7nVJFary584rAhdgtVOxn2P9ZuAQ1YJaOQ1hQHZE2fbDiCeapNvG7mHg==",
+      "files": [
+        "content/net40/app.config.install.xdt",
+        "content/net40/app.config.transform",
+        "content/net40/web.config.install.xdt",
+        "content/net40/web.config.transform",
+        "content/net45/app.config.install.xdt",
+        "content/net45/app.config.transform",
+        "content/net45/web.config.install.xdt",
+        "content/net45/web.config.transform",
+        "content/net451/app.config.install.xdt",
+        "content/net451/app.config.transform",
+        "content/net451/web.config.install.xdt",
+        "content/net451/web.config.transform",
+        "content/net46/app.config.install.xdt",
+        "content/net46/app.config.transform",
+        "content/net46/web.config.install.xdt",
+        "content/net46/web.config.transform",
+        "lib/net40/System.Data.SQLite.EF6.dll",
+        "lib/net45/System.Data.SQLite.EF6.dll",
+        "lib/net451/System.Data.SQLite.EF6.dll",
+        "lib/net46/System.Data.SQLite.EF6.dll",
+        "System.Data.SQLite.EF6.1.0.99.nupkg",
+        "System.Data.SQLite.EF6.1.0.99.nupkg.sha512",
+        "System.Data.SQLite.EF6.nuspec",
+        "tools/net40/install.ps1",
+        "tools/net45/install.ps1",
+        "tools/net451/install.ps1",
+        "tools/net46/install.ps1"
+      ]
+    },
+    "System.Data.SQLite.Linq/1.0.99": {
+      "type": "package",
+      "sha512": "8wg7aVjlNXcZE2BUpu9bfogjcYsKeaSHUHhcPnSnzYHTYGPERpRNcw52B2e+3AQfFevHQkSPhReAHhnfn1EeYw==",
+      "files": [
+        "content/net20/app.config.transform",
+        "content/net20/web.config.transform",
+        "content/net40/app.config.transform",
+        "content/net40/web.config.transform",
+        "content/net45/app.config.transform",
+        "content/net45/web.config.transform",
+        "content/net451/app.config.transform",
+        "content/net451/web.config.transform",
+        "content/net46/app.config.transform",
+        "content/net46/web.config.transform",
+        "lib/net20/System.Data.SQLite.Linq.dll",
+        "lib/net40/System.Data.SQLite.Linq.dll",
+        "lib/net45/System.Data.SQLite.Linq.dll",
+        "lib/net451/System.Data.SQLite.Linq.dll",
+        "lib/net46/System.Data.SQLite.Linq.dll",
+        "System.Data.SQLite.Linq.1.0.99.nupkg",
+        "System.Data.SQLite.Linq.1.0.99.nupkg.sha512",
+        "System.Data.SQLite.Linq.nuspec"
+      ]
+    },
+    "System.IO/4.0.11-beta-23516": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "dR1DaWrF0zsV2z/GVs8xVvMds6xu0ykuwv+VPou8wbpJ1XxGBK9g6v5F84DWL8Q1qi+6Kyb56wbZYdYQO8OMew==",
+      "files": [
+        "lib/DNXCore50/System.IO.dll",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/System.IO.dll",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "ref/dotnet5.1/de/System.IO.xml",
+        "ref/dotnet5.1/es/System.IO.xml",
+        "ref/dotnet5.1/fr/System.IO.xml",
+        "ref/dotnet5.1/it/System.IO.xml",
+        "ref/dotnet5.1/ja/System.IO.xml",
+        "ref/dotnet5.1/ko/System.IO.xml",
+        "ref/dotnet5.1/ru/System.IO.xml",
+        "ref/dotnet5.1/System.IO.dll",
+        "ref/dotnet5.1/System.IO.xml",
+        "ref/dotnet5.1/zh-hans/System.IO.xml",
+        "ref/dotnet5.1/zh-hant/System.IO.xml",
+        "ref/dotnet5.4/de/System.IO.xml",
+        "ref/dotnet5.4/es/System.IO.xml",
+        "ref/dotnet5.4/fr/System.IO.xml",
+        "ref/dotnet5.4/it/System.IO.xml",
+        "ref/dotnet5.4/ja/System.IO.xml",
+        "ref/dotnet5.4/ko/System.IO.xml",
+        "ref/dotnet5.4/ru/System.IO.xml",
+        "ref/dotnet5.4/System.IO.dll",
+        "ref/dotnet5.4/System.IO.xml",
+        "ref/dotnet5.4/zh-hans/System.IO.xml",
+        "ref/dotnet5.4/zh-hant/System.IO.xml",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/de/System.IO.xml",
+        "ref/netcore50/es/System.IO.xml",
+        "ref/netcore50/fr/System.IO.xml",
+        "ref/netcore50/it/System.IO.xml",
+        "ref/netcore50/ja/System.IO.xml",
+        "ref/netcore50/ko/System.IO.xml",
+        "ref/netcore50/ru/System.IO.xml",
+        "ref/netcore50/System.IO.dll",
+        "ref/netcore50/System.IO.xml",
+        "ref/netcore50/zh-hans/System.IO.xml",
+        "ref/netcore50/zh-hant/System.IO.xml",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "runtimes/win8-aot/lib/netcore50/System.IO.dll",
+        "System.IO.4.0.11-beta-23516.nupkg",
+        "System.IO.4.0.11-beta-23516.nupkg.sha512",
+        "System.IO.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "System.Data.SQLite >= 1.0.99"
+    ],
+    ".NETFramework,Version=v4.5.1": [
+      "System.Data.Sql.Browser >= 0.5.0.73",
+      "System.Data.SQLite.Core >= 1.0.99",
+      "System.IO >= 4.0.11-beta-23516",
+      "fx/System.Data >= 4.0.0",
+      "fx/System.Data.Entity >= 4.0.0",
+      "fx/System.Data.Linq >= 4.0.0",
+      "fx/System.Data.Services.Client >= 4.0.0"
+    ]
+  }
+}
