@@ -10,6 +10,8 @@ namespace WatchDog
     // To enable this option, right-click on the project and select the Properties menu item. In the Build tab select "Produce outputs on build".
     public class ABC:IDisposable
     {
+        // This is the sole class property if properties are added
+        // it would be appropriate to create get and set methods
         public string connectString;
       
         public ABC()
@@ -32,6 +34,8 @@ namespace WatchDog
                     cValue = split_words[1].ToString().Trim();
                     configuration.Add(cItem, cValue);
                 }
+//The following format for extracting the connectoin string from the configuration file
+// can easily be extended to populate additional class properties 
                 configuration.TryGetValue("ConnectionString", out tString);
                 if (tString.Length > 0) { connectString = tString.ToString().Trim(); } else { connectString = "EMPTY"; }
             }
@@ -41,6 +45,14 @@ namespace WatchDog
             }
 
         }
+// Notes:
+// Use of try and catch around the ProcessStatus check that frames the method processing body
+// and throw a user defined exception or pass predefined process status codes to caller
+//
+// Generate GUIDS for primary keys rather than relying on server functionality to do so.
+// For non SQL Server environments GUID's can be cast to strings or to varbinary for each
+// of the tables primary keys.
+//
         //APPLICATION
         //This table stores the information about the Application
         public int DefineApplication(string APP_NAME, string UPDATE_UID)
