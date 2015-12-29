@@ -853,44 +853,80 @@ namespace WatchDog
                 if (! String.IsNullOrEmpty(BATCH_CNTRL_NM))
                     {
                     SET_CLAUSE = "BATCH_CNTRL_NM='" + BATCH_CNTRL_NM.ToString()+"'";
+                    SET_COMMA = ", ";
                     SetCounter++;
                     }
                 //BATCH_CNTRL_DT
                 if (BATCH_CNTRL_DT != null)
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BATCH_CNTRL_DT='"+ BATCH_CNTRL_DT.ToString()+"'";			   
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " BATCH_CNTRL_DT='" + BATCH_CNTRL_DT.ToString() + "'";
+                        } else {
+                        SET_COMMA = ", ";
+                        SET_CLAUSE = " BATCH_CNTRL_DT='" + BATCH_CNTRL_DT.ToString() + "'";
+                        SetCounter++; }
+                    			   
                 }
                 //BATCH_CNTRL_ACTV_IND
                 if (!String.IsNullOrEmpty(BATCH_CNTRL_ACTV_IND))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BATCH_CNTRL_ACTV_IND='"+ BATCH_CNTRL_ACTV_IND.ToString()+"'";			   
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BATCH_CNTRL_ACTV_IND='" + BATCH_CNTRL_ACTV_IND.ToString() + "'";
+                         } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " BATCH_CNTRL_ACTV_IND='" + BATCH_CNTRL_ACTV_IND.ToString() + "'";
+                        }
+                   			   
                 }
                 //BATCH_START_DT
                 if (BATCH_STRT_DTTM != null)
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BATCH_STRT_DTTM='" + BATCH_STRT_DTTM.ToString()+"'";			   
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BATCH_STRT_DTTM='" + BATCH_STRT_DTTM.ToString() + "'";
+                             } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " BATCH_STRT_DTTM='" + BATCH_STRT_DTTM.ToString() + "'";
+                        }
+		   
                 }
                 //BATCH_END_DT
                 if (BATCH_END_DTTM != null)
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BATCH_END_DTTM='" + BATCH_END_DTTM.ToString()+"'";			   
-                }
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BATCH_END_DTTM='" + BATCH_END_DTTM.ToString() + "'";
+                        } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " BATCH_END_DTTM='" + BATCH_END_DTTM.ToString() + "'";
+                        }
+
+                    }
                 //BOUNDARY_START_DT
                 if (BOUNDARY_START_DT != null)
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BOUNDARY_START_DT='"+ BOUNDARY_START_DT.ToString()+"'";			   
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BOUNDARY_START_DT='" + BOUNDARY_START_DT.ToString() + "'";
+                         } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " BOUNDARY_START_DT='" + BOUNDARY_START_DT.ToString() + "'";
+                        }
+                    			   
                 }
                 //BOUNDARY_END_DT
                 if (BOUNDARY_END_DT != null)
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BOUNDARY_END_DT='"+BOUNDARY_END_DT.ToString()+"'";			   
-                }
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BOUNDARY_END_DT='" + BOUNDARY_END_DT.ToString() + "'";
+                         } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " BOUNDARY_END_DT='" + BOUNDARY_END_DT.ToString() + "'";
+                        }
+
+                    }
                 using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(connectString))
                     {
                     con.Open();
@@ -1164,40 +1200,69 @@ namespace WatchDog
                 //PROCESS_ID_NM
                 if ( ! String.IsNullOrEmpty(PROCESS_ID_NM))
                     {
-                    SET_CLAUSE = "PROCESS_ID_NM='" + PROCESS_ID_NM.ToString()+"'";
+                    SET_CLAUSE = " PROCESS_ID_NM='" + PROCESS_ID_NM.ToString()+"'";
                     SetCounter++;
+                    SET_COMMA = ", ";
                     }
                 //BATCH_ID
-                if (! String.IsNullOrEmpty(BATCH_ID))
+                if (!String.IsNullOrEmpty(BATCH_ID))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE + "BATCH_ID='" + BATCH_ID.ToString()+"'";
-                    SetCounter++;
+                    if (SetCounter > 0) { SET_CLAUSE = SET_CLAUSE + SET_COMMA.ToString() + " BATCH_ID='" + BATCH_ID.ToString() + "'"; } else {
+                        SetCounter++;
+                        SET_COMMA = ", ";
+                        SET_CLAUSE = " BATCH_ID='" + BATCH_ID.ToString() + "'";
+                        SetCounter++;}
                     }
                 //PROCESS_TYP_CD
                 if (! String.IsNullOrEmpty(PROCESS_TYP_CD))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "PROCESS_TYP_CD='"+PROCESS_TYP_CD.ToString()+"'";			   
+                    if (SetCounter > 0)
+                        {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_TYP_CD='" + PROCESS_TYP_CD.ToString() + "'";
+                        }
+                    else
+                        {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " PROCESS_TYP_CD='" + PROCESS_TYP_CD.ToString() + "'";
+                        }		   
                 }
                 //PROCESS_LOCATION
-                if (! String.IsNullOrEmpty(PROCESS_LOCATION))
+                if (!String.IsNullOrEmpty(PROCESS_LOCATION))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "PROCESS_LOCATION='"+PROCESS_LOCATION.ToString()+"'";			   
+                    if (SetCounter > 0)
+                        {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_LOCATION='" + PROCESS_LOCATION.ToString() + "'";
+                        }
+                    else
+                        {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                    SET_CLAUSE = " PROCESS_LOCATION='" + PROCESS_LOCATION.ToString() + "'";
+                    }		   
                 }
                 //PROCESS_NM
                 if (! String.IsNullOrEmpty(PROCESS_NM))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "PROCESS_NM='"+ PROCESS_NM.ToString()+"'";			   
+                    if (SetCounter > 0) { SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_NM='" + PROCESS_NM.ToString() + "'"; } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " PROCESS_NM='" + PROCESS_NM.ToString() + "'";
+                        }			   
                 }
                 //ENABLE_IND
                 if (! String.IsNullOrEmpty(ENABLE_IND))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "ENABLE_IND='"+ENABLE_IND.ToString()+"'";			   
-                }
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " ENABLE_IND='" + ENABLE_IND.ToString() + "'";
+                        }
+                    else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " ENABLE_IND='" + ENABLE_IND.ToString() + "'";
+                        }
+
+                    }
 
                 using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(connectString))
                     {
@@ -1515,37 +1580,66 @@ namespace WatchDog
                 if (! String.IsNullOrEmpty(SOURCE_EXPRESSION_TXT))
                     {
                     SET_CLAUSE = "SOURCE_EXPRESSION_TXT='" + SOURCE_EXPRESSION_TXT.ToString()+"'";
+                    SET_COMMA = ", ";
                     SetCounter++;
                     }
                 //OPERAND
                 if ( ! String.IsNullOrEmpty(OPERAND))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "OPERAND='"+OPERAND.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "OPERAND='" + OPERAND.ToString() + "'";
+                        } else {
+                        SetCounter++;
+                        SET_COMMA = ", ";
+                        SET_CLAUSE = "OPERAND='" + OPERAND.ToString() + "'";
+                        }
+                    
                     }
                 //TARGET_EXPRESSION_TXT
                 if (! String.IsNullOrEmpty(TARGET_EXPRESSION_TXT))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "TARGET_EXPRESSION_TXT='"+TARGET_EXPRESSION_TXT.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "TARGET_EXPRESSION_TXT='" + TARGET_EXPRESSION_TXT.ToString() + "'";
+                        } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " TARGET_EXPRESSION_TXT='" + TARGET_EXPRESSION_TXT.ToString() + "'";
+                        }
+                    
                     }
                 //ABC_TYP_IND
                 if (! String.IsNullOrEmpty(ABC_TYP_IND))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "ABC_TYP_IND='"+ ABC_TYP_IND.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "ABC_TYP_IND='" + ABC_TYP_IND.ToString() + "'";
+                        } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = "ABC_TYP_IND='" + ABC_TYP_IND.ToString() + "'";
+                        }
+                    
                     }
                 //ENABLE_IND
                 if (! String.IsNullOrEmpty(ENABLE_IND))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "ENABLE_IND='"+ENABLE_IND.ToString()+"'";
+                    if (SetCounter > 0) { SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "ENABLE_IND='" + ENABLE_IND.ToString() + "'";
+                        } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " ENABLE_IND='" + ENABLE_IND.ToString() + "'";
+                        }
+                    
                     }
                 //ABC_FAIL_CRITICAL_FLAG
                 if (! String.IsNullOrEmpty(ABC_FAIL_CRITICAL_FLAG))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "ABC_FAIL_CRITICAL_FLAG='"+ ABC_FAIL_CRITICAL_FLAG.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " ABC_FAIL_CRITICAL_FLAG='" + ABC_FAIL_CRITICAL_FLAG.ToString() + "'";
+                         } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " ABC_FAIL_CRITICAL_FLAG='" + ABC_FAIL_CRITICAL_FLAG.ToString() + "'";
+                        }
                     }
 
                 using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(connectString))
@@ -1766,44 +1860,79 @@ namespace WatchDog
                 if (! String.IsNullOrEmpty(PROCESS_CNTRL_STS))
                     {
                     SET_CLAUSE = " PROCESS_CNTRL_STS='" + PROCESS_CNTRL_STS.ToString()+"'";
+                    SET_COMMA = ", ";
                     SetCounter++;
                     }
                 //BATCH_CNTRL_ID
                 if (! String.IsNullOrEmpty(BATCH_CNTRL_ID))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " BATCH_CNTRL_ID='"+BATCH_CNTRL_ID.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " BATCH_CNTRL_ID='" + BATCH_CNTRL_ID.ToString() + "'";
+                         } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " BATCH_CNTRL_ID='" + BATCH_CNTRL_ID.ToString() + "'";
+                        }
                     }
                 //PROCESS_ID
                 if (! String.IsNullOrEmpty(PROCESS_ID))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_ID='"+ PROCESS_ID.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_ID='" + PROCESS_ID.ToString() + "'";
+                        } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " PROCESS_ID='" + PROCESS_ID.ToString() + "'";
+                        }                 
                     }
 
                 //PROCESS_STR_DTTM
                 if (PROCESS_STR_DTTM != null)
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_STR_DTTM='"+PROCESS_STR_DTTM.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_STR_DTTM='" + PROCESS_STR_DTTM.ToString() + "'";
+                         } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " PROCESS_STR_DTTM='" + PROCESS_STR_DTTM.ToString() + "'";
+                        }
+                    
                     }
                 //PROCESS_END_DTTM
                 if (PROCESS_END_DTTM != null)
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_END_DTTM='"+ PROCESS_END_DTTM.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_END_DTTM='" + PROCESS_END_DTTM.ToString() + "'";
+                         } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " PROCESS_END_DTTM='" + PROCESS_END_DTTM.ToString() + "'";
+                        }
+                    
                     }
                 //PROCESS_RESTR_CNTR
                 if (PROCESS_RESTR_CNTR > 0)
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_RESTR_CNTR='"+PROCESS_RESTR_CNTR.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_RESTR_CNTR='" + PROCESS_RESTR_CNTR.ToString() + "'";
+                         } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " PROCESS_RESTR_CNTR='" + PROCESS_RESTR_CNTR.ToString() + "'";
+                        }
+                    
                     }
                 //PROCESS_INIT_STR_DTTM
                 if (PROCESS_INIT_STR_DTTM != null)
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_INIT_STR_DTTM='"+PROCESS_INIT_STR_DTTM.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_INIT_STR_DTTM='" + PROCESS_INIT_STR_DTTM.ToString() + "'";
+                         } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " PROCESS_INIT_STR_DTTM='" + PROCESS_INIT_STR_DTTM.ToString() + "'";
+                        }
+                    
                     }
 
                 using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(connectString))
@@ -2075,21 +2204,34 @@ namespace WatchDog
                 if (! String.IsNullOrEmpty(PROPERTY_VALUE))
                     {
                     SET_CLAUSE = "PROPERTY_VALUE='" + PROPERTY_VALUE.ToString()+"'";
+                    SET_COMMA = ", ";
                     SetCounter++;
                     }
 
                 //PROPERTY_VALUE_TYP
                 if (! String.IsNullOrEmpty(PROPERTY_VALUE_TYP))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE =SET_COMMA.ToString()+ "PROPERTY_VALUE_TYP='" + PROPERTY_VALUE_TYP.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString()+SET_COMMA.ToString() + "PROPERTY_VALUE_TYP='" + PROPERTY_VALUE_TYP.ToString() + "'";
+                         } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = "PROPERTY_VALUE_TYP='" + PROPERTY_VALUE_TYP.ToString() + "'";
+                        }
+                    
                     }
 
                 //ENABLE_IND
                 if (! String.IsNullOrEmpty(ENABLE_IND))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_COMMA.ToString() + "ENABLE_IND='" + ENABLE_IND.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString()+SET_COMMA.ToString() + "ENABLE_IND='" + ENABLE_IND.ToString() + "'";
+                         } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " ENABLE_IND='" + ENABLE_IND.ToString() + "'";
+                        }
+                
                     }
 
                 using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(connectString))
@@ -2302,19 +2444,32 @@ namespace WatchDog
                 if (! String.IsNullOrEmpty(PROCESS_CNTRL_STAT_DESC))
                     {
                     SET_CLAUSE = "PROCESS_CNTRL_STAT_DESC='" + PROCESS_CNTRL_STAT_DESC.ToString()+"'";
+                    SET_COMMA = ", ";
                     SetCounter++;
                     }
                 //PROCESS_CNTRL_STAT_TYP
                 if (! String.IsNullOrEmpty(PROCESS_CNTRL_STAT_TYP))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "PROCESS_CNTRL_STAT_TYP='"+PROCESS_CNTRL_STAT_TYP.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_CNTRL_STAT_TYP='" + PROCESS_CNTRL_STAT_TYP.ToString() + "'";
+                         } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " PROCESS_CNTRL_STAT_TYP='" + PROCESS_CNTRL_STAT_TYP.ToString() + "'";
+                        }
+                    
                     }
                 //PROCESS_CNTRL_STAT_VALU
                 if (! String.IsNullOrEmpty(PROCESS_CNTRL_STAT_VALU))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
-                    SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "PROCESS_CNTRL_STAT_VALU='"+ PROCESS_CNTRL_STAT_VALU.ToString()+"'";
+                    if (SetCounter > 0) {
+                        SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "PROCESS_CNTRL_STAT_VALU='" + PROCESS_CNTRL_STAT_VALU.ToString() + "'";                      
+                        } else {
+                        SET_COMMA = ", ";
+                        SetCounter++;
+                        SET_CLAUSE = " PROCESS_CNTRL_STAT_VALU='" + PROCESS_CNTRL_STAT_VALU.ToString() + "'";
+                        }
+                    
                     }
 
 
@@ -2506,7 +2661,8 @@ namespace WatchDog
                 //EXPECTED_VALUE
                 if (! String.IsNullOrEmpty(EXPECTED_VALUE))
                     {
-                    if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
+                    SET_COMMA = ", ";
+                    SetCounter++; 
                     SET_CLAUSE = "EXPECTED_VALUE='" + EXPECTED_VALUE.ToString()+"'";
                     }
 
@@ -2514,7 +2670,7 @@ namespace WatchDog
                 if (! String.IsNullOrEmpty(ACTUAL_VALUE))
                     {
                     if (SetCounter > 0) {
-                        SET_CLAUSE = SET_COMMA.ToString() + "ACTUAL_VALUE='" + ACTUAL_VALUE.ToString() + "'";
+                        SET_CLAUSE = SET_CLAUSE.ToString()+SET_COMMA.ToString() + "ACTUAL_VALUE='" + ACTUAL_VALUE.ToString() + "'";
                         }
                     else {
                         SET_COMMA = ", ";
@@ -2527,7 +2683,7 @@ namespace WatchDog
                 if (! String.IsNullOrEmpty(ABC_PASS_IND))
                     {
                     if (SetCounter > 0) {
-                        SET_CLAUSE = SET_COMMA.ToString() + "ABC_PASS_IND='" + ABC_PASS_IND.ToString() + "'";
+                        SET_CLAUSE = SET_CLAUSE.ToString()+SET_COMMA.ToString() + "ABC_PASS_IND='" + ABC_PASS_IND.ToString() + "'";
                         } else {
                         SET_COMMA = ", ";
                         SET_CLAUSE =" ABC_PASS_IND='" + ABC_PASS_IND.ToString() + "'";
@@ -2538,7 +2694,7 @@ namespace WatchDog
                 if (! String.IsNullOrEmpty(PROCESS_BALANCE_IND))
                     {
                     if (SetCounter > 0) {
-                        SET_CLAUSE = SET_COMMA.ToString() + "PROCESS_BALANCE_IND='" + PROCESS_BALANCE_IND.ToString() + "'";
+                        SET_CLAUSE = SET_CLAUSE.ToString()+SET_COMMA.ToString() + "PROCESS_BALANCE_IND='" + PROCESS_BALANCE_IND.ToString() + "'";
                         }
                     else { SetCounter++;
                         SET_COMMA = ", ";
@@ -2550,7 +2706,7 @@ namespace WatchDog
                 if (! String.IsNullOrEmpty(PROCESS_CONTROL_IND))
                     {
                     if (SetCounter > 0) {
-                        SET_CLAUSE = SET_COMMA.ToString() + "PROCESS_CONTROL_IND='" + PROCESS_CONTROL_IND.ToString() + "'";
+                        SET_CLAUSE = SET_CLAUSE.ToString()+ SET_COMMA.ToString() + "PROCESS_CONTROL_IND='" + PROCESS_CONTROL_IND.ToString() + "'";
                         }
                     else {
                         SET_COMMA = ", ";
@@ -2563,7 +2719,7 @@ namespace WatchDog
                 if (! String.IsNullOrEmpty(PROCESS_AUDIT_IND))
                     {
                     if (SetCounter > 0) {
-                        SET_CLAUSE = SET_COMMA.ToString() + "PROCESS_AUDIT_IND='" + PROCESS_AUDIT_IND.ToString() + "'";
+                        SET_CLAUSE = SET_CLAUSE.ToString()+SET_COMMA.ToString() + "PROCESS_AUDIT_IND='" + PROCESS_AUDIT_IND.ToString() + "'";
                         }
                     else {
                         SET_COMMA = ", ";
@@ -2576,7 +2732,7 @@ namespace WatchDog
                 if (! String.IsNullOrEmpty(CRITICAL_FAIL_IND))
                     {
                     if (SetCounter > 0) {
-                        SET_CLAUSE = SET_COMMA.ToString() + "CRITICAL_FAIL_IND='" + CRITICAL_FAIL_IND.ToString() + "'";
+                        SET_CLAUSE = SET_CLAUSE.ToString()+SET_COMMA.ToString() + "CRITICAL_FAIL_IND='" + CRITICAL_FAIL_IND.ToString() + "'";
                         }
                     else {
                         SET_CLAUSE = " CRITICAL_FAIL_IND='" + CRITICAL_FAIL_IND.ToString() + "'";
