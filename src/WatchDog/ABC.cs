@@ -61,11 +61,11 @@ namespace WatchDog
             char ENABLE_IND = 'Y';
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (APP_NAME.Length == 0)
+            if (String.IsNullOrEmpty(APP_NAME))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -98,7 +98,7 @@ namespace WatchDog
                 {
                 WhereProcess = 1;
                 }
-            if (APP_NAME.Trim().Length == 0)
+            if (String.IsNullOrEmpty(APP_NAME))
                 {
                  WhereProcess++;
                 }
@@ -109,12 +109,12 @@ namespace WatchDog
             if ((ProcessStatus == 0) && (WhereProcess<2))
                 {
                 //Build Where Clause
-                if (APP_ID != null)
+                if (! String.IsNullOrEmpty(APP_ID))
                     {
                     WHERE_APP_ID = " APP_ID ='" + APP_ID.ToString()+"'";
                     }
 
-                if ((APP_ID != null) && (APP_NAME.Trim().Length > 0))
+                if ((! String.IsNullOrEmpty(APP_ID)) && (! String.IsNullOrEmpty(APP_NAME)))
                     {
                     WHERE_CLAUSE = WHERE_APP_ID + "AND  APP_NAME ='" + APP_NAME.ToString()+"'";
                     }
@@ -167,7 +167,7 @@ namespace WatchDog
             DataTable dtResult = new DataTable();
             Tuple<string,int> rValue;
 
-            if (iAPP_NAME.Trim().Length == 0)
+            if (String.IsNullOrEmpty(iAPP_NAME))
                 {
                 ProcessStatus++;
                 }
@@ -225,11 +225,11 @@ namespace WatchDog
             char ENABLE_IND = 'Y';
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (APP_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(APP_ID))
                 {
                 ProcessStatus = 2;
                 }
-            if (UPDATE_UID.Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus = 3;
                 }
@@ -261,11 +261,11 @@ namespace WatchDog
             char ENABLE_IND = 'N';
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (APP_ID.Length == 0)
+            if (String.IsNullOrEmpty(APP_ID))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -296,15 +296,15 @@ namespace WatchDog
             int ProcessStatus = 0;
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (APP_ID.Length == 0)
+            if (String.IsNullOrEmpty(APP_ID))
                 {
                 ProcessStatus++;
                 }
-            if (APP_NAME.Length == 0)
+            if (String.IsNullOrEmpty(APP_NAME))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -331,7 +331,7 @@ namespace WatchDog
         public int DeleteApplication(string APP_ID)
             {
             int ProcessStatus = 0;
-            if (APP_ID.Length ==0)
+            if (String.IsNullOrEmpty(APP_ID))
                 {
                 ProcessStatus++;
                 }
@@ -362,19 +362,19 @@ namespace WatchDog
 
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (BATCH_TYPE.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_TYPE))
                 {
                 ProcessStatus++;
                 }
-            if (APP_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(APP_ID))
                 {
                 ProcessStatus++;
                 }
-            if (BATCH_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_NM))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -404,7 +404,7 @@ namespace WatchDog
             string  WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if (BATCH_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_NM))
                 {ProcessStatus++;
                 }
             if (ProcessStatus == 0)
@@ -457,12 +457,12 @@ namespace WatchDog
             string WHERE_BATCH_ID = "", WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if (BATCH_ID.Trim().Length == 0)
+            if ( String.IsNullOrEmpty(BATCH_ID))
                 {
                 ProcessStatus++;
                 }
             else { WhereProcess++; }
-            if (BATCH_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_NM))
                 {
                 ProcessStatus++;
                 }
@@ -479,7 +479,7 @@ namespace WatchDog
                     }
                 else
                     {
-                    if (BATCH_ID.Trim().Length > 0)
+                    if (! String.IsNullOrEmpty(BATCH_ID))
                         {
                         WHERE_CLAUSE = " BATCH_ID ='" + BATCH_ID.ToString() + "'";
                         } else { WHERE_CLAUSE = " BATCH_NM =" + BATCH_NM.ToString()+"'"; }                   
@@ -529,11 +529,11 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             WHERE_CLAUSE = " BATCH_ID='" + BATCH_ID.ToString() + "'";
 
-            if (BATCH_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_ID))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -560,19 +560,18 @@ namespace WatchDog
             char ENABLE_IND = 'N';
             DateTime UPDATE_DTTM = DateTime.Now;
             string WHERE_CLAUSE = "";
-            WHERE_CLAUSE = " BATCH_ID='" + BATCH_ID.ToString() + "'";
-
-            if (BATCH_ID.Trim().Length == 0)
+           
+            if (String.IsNullOrEmpty(BATCH_ID))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
             if (ProcessStatus == 0)
                 {
-
+                WHERE_CLAUSE = " BATCH_ID='" + BATCH_ID.ToString() + "'";
                 using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(connectString))
                     {
                     con.Open();
@@ -591,17 +590,17 @@ namespace WatchDog
             int ProcessStatus = 0;
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (BATCH_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_ID))
                 {
                 ProcessStatus++;
                 }
 
-            if ((BATCH_NM.Trim().Length == 0) && (BATCH_TYPE.Trim().Length == 0))
+            if ((String.IsNullOrEmpty(BATCH_NM)) && (String.IsNullOrEmpty(BATCH_TYPE)))
                 {
                 ProcessStatus++;
                 }
 
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -611,16 +610,16 @@ namespace WatchDog
                 string WHERE_CLAUSE = "";
                 WHERE_CLAUSE = " BATCH_ID='" + BATCH_ID.ToString()+"'";
                 string SET_CLAUSE = "";
-                if ((BATCH_NM.Trim().Length > 0) && (BATCH_TYPE.Trim().Length > 0))
+                if ((! String.IsNullOrEmpty(BATCH_NM)) && (! String.IsNullOrEmpty(BATCH_TYPE)))
                     {
                     SET_CLAUSE = " BATCH_NM='" + BATCH_NM.ToString() + "', BATCH_TYPE='" + BATCH_TYPE.ToString() + "' ";
                     }
-                if (BATCH_TYPE.Trim().Length > 0)
+                if (String.IsNullOrEmpty(BATCH_TYPE))
                         {
                     SET_CLAUSE = "BATCH_TYPE='" + BATCH_TYPE.ToString() + "' ";
                     } else {
                     SET_CLAUSE = " BATCH_NM='" + BATCH_NM.ToString() + "' "; } 
-                if (ENABLE_IND.Trim().Length>0) { SET_CLAUSE = SET_CLAUSE + ", ENABLE_IND='" + ENABLE_IND.ToString()+"'"; }
+                if (! String.IsNullOrEmpty(ENABLE_IND)) { SET_CLAUSE = SET_CLAUSE + ", ENABLE_IND='" + ENABLE_IND.ToString()+"'"; }
 
                 using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(connectString))
                     {
@@ -640,7 +639,7 @@ namespace WatchDog
             int ProcessStatus = 0;
 
 
-            if (BATCH_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_ID))
                 {
                 ProcessStatus++;
                 }
@@ -670,19 +669,19 @@ namespace WatchDog
             int ProcessStatus = 0;
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (BATCH_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_ID))
                 {
                 ProcessStatus++;
                 }
-            if (BATCH_CNTRL_NM.Length == 0)
+            if (String.IsNullOrEmpty(BATCH_CNTRL_NM))
                 {
                 ProcessStatus++;
                 }
-            if (BATCH_CNTRL_ACTV_IND.ToString().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_CNTRL_ACTV_IND))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -714,7 +713,7 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if (BATCH_CNTRL_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_CNTRL_NM))
                 {
                 ProcessStatus++;
                 }
@@ -767,11 +766,11 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
 
 
-            if (BATCH_CNTRL_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_CNTRL_ID))
                 {
                 ProcessStatus++;
                 } 
-            if (BATCH_CNTRL_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_CNTRL_NM))
                 {
                 ProcessStatus++;
                 }
@@ -830,11 +829,11 @@ namespace WatchDog
             int ProcessStatus = 0;
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (BATCH_CNTRL_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_CNTRL_ID))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -851,7 +850,7 @@ namespace WatchDog
                 int SetCounter = 0;
 
                 //BATCH_CNTRL_NM
-                if (BATCH_CNTRL_NM.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(BATCH_CNTRL_NM))
                     {
                     SET_CLAUSE = "BATCH_CNTRL_NM='" + BATCH_CNTRL_NM.ToString()+"'";
                     SetCounter++;
@@ -863,7 +862,7 @@ namespace WatchDog
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BATCH_CNTRL_DT='"+ BATCH_CNTRL_DT.ToString()+"'";			   
                 }
                 //BATCH_CNTRL_ACTV_IND
-                if (BATCH_CNTRL_ACTV_IND.Trim().Length > 0)
+                if (!String.IsNullOrEmpty(BATCH_CNTRL_ACTV_IND))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BATCH_CNTRL_ACTV_IND='"+ BATCH_CNTRL_ACTV_IND.ToString()+"'";			   
@@ -912,27 +911,27 @@ namespace WatchDog
             int ProcessStatus = 0;
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (PROCESS_ID_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID_NM))
                 {
                 ProcessStatus++;
                 }
-            if (BATCH_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_ID))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_TYP_CD.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_TYP_CD))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_LOCATION.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_LOCATION))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_NM))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -944,7 +943,7 @@ namespace WatchDog
                     SqlCommand cmd = new SqlCommand("INSERT INTO PROCESS (PROCESS_ID_NM, BATCH_ID, PROCESS_TYP_CD,  PROCESS_LOCATION, PROCESS_NM, ENABLE_IND, UPDATE_DTTM,UPDATE_UID) VALUES (@PROCESS_ID_NM, @BATCH_ID, @PROCESS_TYP_CD, @PROCESS_LOCATION, @PROCESS_NM, @ENABLE_IND, @UPDATE_DTTM, @UPDATE_UID)");
                     cmd.Parameters.Add("@PROCESS_ID_NM", SqlDbType.VarChar).Value = PROCESS_ID_NM.Trim().ToString();
                     cmd.Parameters.Add("@BATCH_ID", SqlDbType.UniqueIdentifier).Value = new Guid(BATCH_ID);
-                     cmd.Parameters.Add("@PROCESS_TYP_CD", SqlDbType.VarChar,15).Value = PROCESS_TYP_CD.Trim().ToString();
+                    cmd.Parameters.Add("@PROCESS_TYP_CD", SqlDbType.VarChar,15).Value = PROCESS_TYP_CD.Trim().ToString();
                     cmd.Parameters.Add("@PROCESS_LOCATION", SqlDbType.VarChar).Value = PROCESS_LOCATION.Trim().ToString();
                     cmd.Parameters.Add("@PROCESS_NM", SqlDbType.VarChar).Value = PROCESS_NM.Trim().ToString();
                     cmd.Parameters.Add("@ENABLE_IND", SqlDbType.VarChar).Value = "Y";
@@ -964,7 +963,7 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if (PROCESS_ID_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID_NM))
                 {
                 ProcessStatus++;
                 }
@@ -1021,7 +1020,7 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
@@ -1077,11 +1076,11 @@ namespace WatchDog
             char ENABLE_IND = 'Y';
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -1109,11 +1108,11 @@ namespace WatchDog
             char ENABLE_IND = 'N';
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -1141,12 +1140,12 @@ namespace WatchDog
             int ProcessStatus = 0;
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
 
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -1163,38 +1162,38 @@ namespace WatchDog
                 int SetCounter = 0;
 
                 //PROCESS_ID_NM
-                if (PROCESS_ID_NM.Trim().Length > 0)
+                if ( ! String.IsNullOrEmpty(PROCESS_ID_NM))
                     {
                     SET_CLAUSE = "PROCESS_ID_NM='" + PROCESS_ID_NM.ToString()+"'";
                     SetCounter++;
                     }
                 //BATCH_ID
-                if (BATCH_ID.Trim().Length == 0)
+                if (! String.IsNullOrEmpty(BATCH_ID))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE + "BATCH_ID='" + BATCH_ID.ToString()+"'";
                     SetCounter++;
                     }
                 //PROCESS_TYP_CD
-                if (PROCESS_TYP_CD.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(PROCESS_TYP_CD))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "PROCESS_TYP_CD='"+PROCESS_TYP_CD.ToString()+"'";			   
                 }
                 //PROCESS_LOCATION
-                if (PROCESS_LOCATION.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(PROCESS_LOCATION))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "PROCESS_LOCATION='"+PROCESS_LOCATION.ToString()+"'";			   
                 }
                 //PROCESS_NM
-                if (PROCESS_NM.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(PROCESS_NM))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "PROCESS_NM='"+ PROCESS_NM.ToString()+"'";			   
                 }
                 //ENABLE_IND
-                if (ENABLE_IND.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(ENABLE_IND))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "ENABLE_IND='"+ENABLE_IND.ToString()+"'";			   
@@ -1214,7 +1213,7 @@ namespace WatchDog
         public int DeleteProcess(string PROCESS_ID)
             {
             int ProcessStatus = 0;
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
@@ -1239,31 +1238,31 @@ namespace WatchDog
             int ProcessStatus = 0;
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
-            if (SOURCE_EXPRESSION_TXT.Trim().Length == 0)
+            if (String.IsNullOrEmpty(SOURCE_EXPRESSION_TXT))
                 {
                 ProcessStatus++;
                 }
-            if (OPERAND.Length == 0)
+            if (String.IsNullOrEmpty(OPERAND))
                 {
                 ProcessStatus++;
                 }
-            if (TARGET_EXPRESSION_TXT.Trim().Length == 0)
+            if (String.IsNullOrEmpty(TARGET_EXPRESSION_TXT))
                 {
                 ProcessStatus++;
                 }
-            if (ABC_TYP_IND.Trim().Length == 0)
+            if (String.IsNullOrEmpty(ABC_TYP_IND))
                 {
                 ProcessStatus++;
                 }
-            if (ABC_FAIL_CRITICAL_FLAG.Trim().Length == 0)
+            if (String.IsNullOrEmpty(ABC_FAIL_CRITICAL_FLAG))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -1298,11 +1297,11 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
-            if (SOURCE_EXPRESSION_TXT.Trim().Length == 0)
+            if (String.IsNullOrEmpty(SOURCE_EXPRESSION_TXT))
                 {
                 ProcessStatus++;
                 }
@@ -1358,7 +1357,7 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if ((PROCESS_ID.Trim().Length == 0) && (ABC_RULE_ID.Trim().Length == 0))
+            if ((String.IsNullOrEmpty(PROCESS_ID)) && (String.IsNullOrEmpty(ABC_RULE_ID)))
                 {
                 ProcessStatus++;
                 }
@@ -1414,15 +1413,15 @@ namespace WatchDog
             char ENABLE_IND = 'Y';
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (ABC_RULE_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(ABC_RULE_ID))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -1450,15 +1449,15 @@ namespace WatchDog
             char ENABLE_IND = 'N';
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (ABC_RULE_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(ABC_RULE_ID))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -1486,17 +1485,17 @@ namespace WatchDog
             int ProcessStatus = 0;
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (ABC_RULE_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(ABC_RULE_ID))
                 {
                 ProcessStatus++;
                 }
 
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
 
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -1513,37 +1512,37 @@ namespace WatchDog
                 int SetCounter = 0;
 
                 //SOURCE_EXPRESSION_TXT
-                if (SOURCE_EXPRESSION_TXT.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(SOURCE_EXPRESSION_TXT))
                     {
                     SET_CLAUSE = "SOURCE_EXPRESSION_TXT='" + SOURCE_EXPRESSION_TXT.ToString()+"'";
                     SetCounter++;
                     }
                 //OPERAND
-                if (OPERAND.Trim().Length > 0)
+                if ( ! String.IsNullOrEmpty(OPERAND))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "OPERAND='"+OPERAND.ToString()+"'";
                     }
                 //TARGET_EXPRESSION_TXT
-                if (TARGET_EXPRESSION_TXT.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(TARGET_EXPRESSION_TXT))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "TARGET_EXPRESSION_TXT='"+TARGET_EXPRESSION_TXT.ToString()+"'";
                     }
                 //ABC_TYP_IND
-                if (ABC_TYP_IND.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(ABC_TYP_IND))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "ABC_TYP_IND='"+ ABC_TYP_IND.ToString()+"'";
                     }
                 //ENABLE_IND
-                if (ENABLE_IND.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(ENABLE_IND))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "ENABLE_IND='"+ENABLE_IND.ToString()+"'";
                     }
                 //ABC_FAIL_CRITICAL_FLAG
-                if (ABC_FAIL_CRITICAL_FLAG.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(ABC_FAIL_CRITICAL_FLAG))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "ABC_FAIL_CRITICAL_FLAG='"+ ABC_FAIL_CRITICAL_FLAG.ToString()+"'";
@@ -1565,7 +1564,7 @@ namespace WatchDog
         public int DeleteAuditBalanceDefinition(string PROCESS_ID, string ABC_RULE_ID)
             {
             int ProcessStatus = 0;
-            if ((PROCESS_ID.Trim().Length == 0) || (ABC_RULE_ID.Trim().Length == 0))
+            if ((String.IsNullOrEmpty(PROCESS_ID)) || (String.IsNullOrEmpty(ABC_RULE_ID)))
                 {
                 ProcessStatus++;
                 }
@@ -1591,15 +1590,15 @@ namespace WatchDog
             int ProcessStatus = 0;
             Int64 PROCESS_RESTR_CNTR = 0;
 
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
-            if (BATCH_CNTRL_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_CNTRL_ID))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_CNTRL_STS.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_CNTRL_STS))
                 {
                 ProcessStatus++;
                 }
@@ -1630,11 +1629,11 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
-            if (BATCH_CNTRL_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(BATCH_CNTRL_ID))
                 {
                 ProcessStatus++;
                 }
@@ -1689,7 +1688,7 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if (PROCESS_CNTRL_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_CNTRL_ID))
                 {
                 ProcessStatus++;
                 }
@@ -1747,7 +1746,7 @@ namespace WatchDog
             {
             int ProcessStatus = 0;
 
-            if (PROCESS_CNTRL_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_CNTRL_ID))
                 {
                 ProcessStatus++;
                 }
@@ -1764,19 +1763,19 @@ namespace WatchDog
                 int SetCounter = 0;
 
                 //PROCESS_CNTRL_STS
-                if (PROCESS_CNTRL_STS.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(PROCESS_CNTRL_STS))
                     {
                     SET_CLAUSE = " PROCESS_CNTRL_STS='" + PROCESS_CNTRL_STS.ToString()+"'";
                     SetCounter++;
                     }
                 //BATCH_CNTRL_ID
-                if (BATCH_CNTRL_ID.Trim().Length == 0)
+                if (! String.IsNullOrEmpty(BATCH_CNTRL_ID))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " BATCH_CNTRL_ID='"+BATCH_CNTRL_ID.ToString()+"'";
                     }
                 //PROCESS_ID
-                if (PROCESS_ID.Trim().Length == 0)
+                if (! String.IsNullOrEmpty(PROCESS_ID))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + " PROCESS_ID='"+ PROCESS_ID.ToString()+"'";
@@ -1827,23 +1826,23 @@ namespace WatchDog
             DateTime UPDATE_DTTM = DateTime.Now;
             int ProcessStatus = 0;
 
-            if (PROCESS_ID.Trim().Length ==0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
-            if (PROPERTY_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROPERTY_NM))
                 {
                 ProcessStatus++;
                 }
-            if (PROPERTY_VALUE.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROPERTY_VALUE))
                 {
                 ProcessStatus++;
                 }
-            if (PROPERTY_VALUE_TYP.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROPERTY_VALUE_TYP))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -1877,7 +1876,7 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if ((PROCESS_ID.Trim().Length == 0) || (PROPERTY_NM.Trim().Length == 0))
+            if ((String.IsNullOrEmpty(PROCESS_ID)) || (String.IsNullOrEmpty(PROPERTY_NM)))
                 {
                 ProcessStatus++;
                 }
@@ -1934,7 +1933,7 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
@@ -1974,15 +1973,15 @@ namespace WatchDog
             char ENABLE_IND = 'Y';
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (PROPERTY_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROPERTY_NM))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -2011,15 +2010,15 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (PROPERTY_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROPERTY_NM))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -2046,17 +2045,17 @@ namespace WatchDog
             int ProcessStatus = 0;
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (PROCESS_ID.Trim().Length ==0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
 
-            if (PROPERTY_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROPERTY_NM))
                 {
                 ProcessStatus++;
                 }
 
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -2073,21 +2072,21 @@ namespace WatchDog
                 int SetCounter = 0;
 
                 //PROPERTY_VALUE
-                if (PROPERTY_VALUE.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(PROPERTY_VALUE))
                     {
                     SET_CLAUSE = "PROPERTY_VALUE='" + PROPERTY_VALUE.ToString()+"'";
                     SetCounter++;
                     }
 
                 //PROPERTY_VALUE_TYP
-                if (PROPERTY_VALUE_TYP.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(PROPERTY_VALUE_TYP))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE =SET_COMMA.ToString()+ "PROPERTY_VALUE_TYP='" + PROPERTY_VALUE_TYP.ToString()+"'";
                     }
 
                 //ENABLE_IND
-                if (ENABLE_IND.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(ENABLE_IND))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_COMMA.ToString() + "ENABLE_IND='" + ENABLE_IND.ToString()+"'";
@@ -2109,7 +2108,7 @@ namespace WatchDog
         public int DeleteProcessProperty(string PROCESS_ID, string PROPERTY_NM)
             {
             int ProcessStatus = 0;
-            if ((PROCESS_ID.Trim().Length == 0) || (PROPERTY_NM.Trim().Length == 0))
+            if ((String.IsNullOrEmpty(PROCESS_ID)) || (String.IsNullOrEmpty(PROPERTY_NM)))
                 {
                 ProcessStatus++;
                 }
@@ -2133,11 +2132,11 @@ namespace WatchDog
             {
             int ProcessStatus = 0;
             DateTime UPDATE_DTTM = DateTime.Now;
-            if (PROCESS_CNTRL_ID.Trim().Length ==0)
+            if (String.IsNullOrEmpty(PROCESS_CNTRL_ID))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_CNTRL_STAT_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_CNTRL_STAT_NM))
                 {
                 ProcessStatus++;
                 }
@@ -2169,11 +2168,11 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if (PROCESS_CNTRL_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_CNTRL_ID))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_CNTRL_STAT_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_CNTRL_STAT_NM))
                 {
                 ProcessStatus++;
                 }
@@ -2228,7 +2227,7 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if (PROCESS_CNTRL_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_CNTRL_ID))
                 {
                 ProcessStatus++;
                 }
@@ -2273,17 +2272,17 @@ namespace WatchDog
             int ProcessStatus = 0;
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (PROCESS_CNTRL_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_CNTRL_ID))
                 {
                 ProcessStatus++;
                 }
 
-            if (PROCESS_CNTRL_STAT_NM.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_CNTRL_STAT_NM))
                 {
                 ProcessStatus++;
                 }
 
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -2300,19 +2299,19 @@ namespace WatchDog
                 int SetCounter = 0;
 
                 //PROCESS_CNTRL_STAT_DESC
-                if (PROCESS_CNTRL_STAT_DESC.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(PROCESS_CNTRL_STAT_DESC))
                     {
                     SET_CLAUSE = "PROCESS_CNTRL_STAT_DESC='" + PROCESS_CNTRL_STAT_DESC.ToString()+"'";
                     SetCounter++;
                     }
                 //PROCESS_CNTRL_STAT_TYP
-                if (PROCESS_CNTRL_STAT_TYP.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(PROCESS_CNTRL_STAT_TYP))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "PROCESS_CNTRL_STAT_TYP='"+PROCESS_CNTRL_STAT_TYP.ToString()+"'";
                     }
                 //PROCESS_CNTRL_STAT_VALU
-                if (PROCESS_CNTRL_STAT_VALU.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(PROCESS_CNTRL_STAT_VALU))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "PROCESS_CNTRL_STAT_VALU='"+ PROCESS_CNTRL_STAT_VALU.ToString()+"'";
@@ -2339,47 +2338,47 @@ namespace WatchDog
             DateTime UPDATE_DTTM = DateTime.Now;
             int ProcessStatus = 0;
 
-            if (PROCESS_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_CNTRL_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_CNTRL_ID))
                 {
                 ProcessStatus++;
                 }
-            if (ABC_RULE_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(ABC_RULE_ID))
                 {
                 ProcessStatus++;
                 }
-            if (EXPECTED_VALUE.Trim().Length == 0)
+            if (String.IsNullOrEmpty(EXPECTED_VALUE))
                 {
                 ProcessStatus++;
                 }
-            if (ACTUAL_VALUE.Trim().Length == 0)
+            if (String.IsNullOrEmpty(ACTUAL_VALUE))
                 {
                 ProcessStatus++;
                 }
-            if (ABC_PASS_IND.Trim().Length == 0)
+            if (String.IsNullOrEmpty(ABC_PASS_IND))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_BALANCE_IND.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_BALANCE_IND))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_CONTROL_IND.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_CONTROL_IND))
                 {
                 ProcessStatus++;
                 }
-            if (PROCESS_AUDIT_IND.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_AUDIT_IND))
                 {
                 ProcessStatus++;
                 }
-            if (CRITICAL_FAIL_IND.Trim().Length == 0)
+            if (String.IsNullOrEmpty(CRITICAL_FAIL_IND))
                 {
                 ProcessStatus++;
                 }
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -2418,7 +2417,7 @@ namespace WatchDog
             string WHERE_CLAUSE = "";
             DataTable dtResult = new DataTable();
 
-            if ((PROCESS_ID.Trim().Length == 0) || (PROCESS_CNTRL_ID.Trim().Length == 0) || (ABC_RULE_ID.Trim().Length == 0))
+            if ((String.IsNullOrEmpty(PROCESS_ID)) || (String.IsNullOrEmpty(PROCESS_CNTRL_ID)) || (String.IsNullOrEmpty(ABC_RULE_ID)))
                 {
                 ProcessStatus++;
                 }
@@ -2473,22 +2472,22 @@ namespace WatchDog
             int ProcessStatus = 0;
             DateTime UPDATE_DTTM = DateTime.Now;
 
-            if (PROCESS_ID.Trim().Length ==0)
+            if (String.IsNullOrEmpty(PROCESS_ID))
                 {
                 ProcessStatus++;
                 }
 
-            if (PROCESS_CNTRL_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(PROCESS_CNTRL_ID))
                 {
                 ProcessStatus++;
                 }
 
-            if (ABC_RULE_ID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(ABC_RULE_ID))
                 {
                 ProcessStatus++;
                 }
 
-            if (UPDATE_UID.Trim().Length == 0)
+            if (String.IsNullOrEmpty(UPDATE_UID))
                 {
                 ProcessStatus++;
                 }
@@ -2505,14 +2504,14 @@ namespace WatchDog
                 int SetCounter = 0;
 
                 //EXPECTED_VALUE
-                if (EXPECTED_VALUE.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(EXPECTED_VALUE))
                     {
                     if (SetCounter > 0) { SET_COMMA = ", "; } else { SetCounter++; }
                     SET_CLAUSE = "EXPECTED_VALUE='" + EXPECTED_VALUE.ToString()+"'";
                     }
 
                 //ACTUAL_VALUE
-                if (ACTUAL_VALUE.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(ACTUAL_VALUE))
                     {
                     if (SetCounter > 0) {
                         SET_CLAUSE = SET_COMMA.ToString() + "ACTUAL_VALUE='" + ACTUAL_VALUE.ToString() + "'";
@@ -2525,7 +2524,7 @@ namespace WatchDog
                     }
 
                 //ABC_PASS_IND
-                if (ABC_PASS_IND.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(ABC_PASS_IND))
                     {
                     if (SetCounter > 0) {
                         SET_CLAUSE = SET_COMMA.ToString() + "ABC_PASS_IND='" + ABC_PASS_IND.ToString() + "'";
@@ -2536,7 +2535,7 @@ namespace WatchDog
                      }
 
                 //PROCESS_BALANCE_IND
-                if (PROCESS_BALANCE_IND.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(PROCESS_BALANCE_IND))
                     {
                     if (SetCounter > 0) {
                         SET_CLAUSE = SET_COMMA.ToString() + "PROCESS_BALANCE_IND='" + PROCESS_BALANCE_IND.ToString() + "'";
@@ -2548,7 +2547,7 @@ namespace WatchDog
                     }
 
                 //PROCESS_CONTROL_IND
-                if (PROCESS_CONTROL_IND.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(PROCESS_CONTROL_IND))
                     {
                     if (SetCounter > 0) {
                         SET_CLAUSE = SET_COMMA.ToString() + "PROCESS_CONTROL_IND='" + PROCESS_CONTROL_IND.ToString() + "'";
@@ -2561,7 +2560,7 @@ namespace WatchDog
                     }
 
                 //PROCESS_AUDIT_IND
-                if (PROCESS_AUDIT_IND.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(PROCESS_AUDIT_IND))
                     {
                     if (SetCounter > 0) {
                         SET_CLAUSE = SET_COMMA.ToString() + "PROCESS_AUDIT_IND='" + PROCESS_AUDIT_IND.ToString() + "'";
@@ -2574,7 +2573,7 @@ namespace WatchDog
                     }
 
                 //CRITICAL_FAIL_IND
-                if (CRITICAL_FAIL_IND.Trim().Length > 0)
+                if (! String.IsNullOrEmpty(CRITICAL_FAIL_IND))
                     {
                     if (SetCounter > 0) {
                         SET_CLAUSE = SET_COMMA.ToString() + "CRITICAL_FAIL_IND='" + CRITICAL_FAIL_IND.ToString() + "'";
