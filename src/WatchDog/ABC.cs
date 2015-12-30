@@ -614,7 +614,7 @@ namespace WatchDog
                     {
                     SET_CLAUSE = " BATCH_NM='" + BATCH_NM.ToString() + "', BATCH_TYPE='" + BATCH_TYPE.ToString() + "' ";
                     }
-                if (String.IsNullOrEmpty(BATCH_TYPE))
+                if (! String.IsNullOrEmpty(BATCH_TYPE))
                         {
                     SET_CLAUSE = "BATCH_TYPE='" + BATCH_TYPE.ToString() + "' ";
                     } else {
@@ -868,7 +868,7 @@ namespace WatchDog
                     			   
                 }
                 //BATCH_CNTRL_ACTV_IND
-                if (!String.IsNullOrEmpty(BATCH_CNTRL_ACTV_IND))
+                if (! String.IsNullOrEmpty(BATCH_CNTRL_ACTV_IND))
                     {
                     if (SetCounter > 0) {
                         SET_CLAUSE = SET_CLAUSE.ToString() + SET_COMMA.ToString() + "BATCH_CNTRL_ACTV_IND='" + BATCH_CNTRL_ACTV_IND.ToString() + "'";
@@ -2094,7 +2094,6 @@ namespace WatchDog
                 }
 
             }
-
 
         public int EnableProcessProperty(string PROCESS_ID, string PROPERTY_NM, string UPDATE_UID)
             {
